@@ -81,12 +81,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Add Photo"
-        app:layout_constraintBottom_toTopOf="@+id/buttonStart"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStartFrame"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
     <Button
-        android:id="@+id/buttonStart"
+        android:id="@+id/buttonStartFrame"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Start Photo Frame"

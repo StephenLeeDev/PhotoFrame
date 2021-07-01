@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         findViewById(R.id.buttonAddPhoto)
     }
 
-    private val buttonStart: Button by lazy {
-        findViewById(R.id.buttonStart)
+    private val buttonStartFrame: Button by lazy {
+        findViewById(R.id.buttonStartFrame)
     }
 
     private val imageViewList: List<ImageView> by lazy {
@@ -38,6 +38,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        initButtonAddPhoto()
+        initButtonStartFrame()
     }
 
     private fun initButtonAddPhoto() {
@@ -56,6 +59,17 @@ class MainActivity : AppCompatActivity() {
                     requestPermissions(arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), 1000)
                 }
             }
+        }
+    }
+
+    private fun initButtonStartFrame() {
+        buttonStartFrame.setOnClickListener {
+            val intent = Intent(this, PhotoFrameActivity::class.java)
+            imageUriList.forEachIndexed { index, uri ->  
+                intent.putExtra("photo${index}", uri.toString())
+            }
+            intent.putExtra("photoListSize", imageUriList.size)
+            startActivity(intent)
         }
     }
 
